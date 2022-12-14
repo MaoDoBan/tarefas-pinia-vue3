@@ -14,13 +14,15 @@ header {
   text-align: center;
   background: #e7e7e7;
   padding-top: 20px;
+  padding-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 header img {
   max-width: 60px;
-  transform: rotate(-10deg);
+  /* transform: rotate(-10deg); */
+  transform: rotate(-3deg);
 }
 header h1 {
   margin: 0;
@@ -28,5 +30,33 @@ header h1 {
   padding-top: 25px;
   margin-left: 15px;
   color: #777;
-  transform: rotate(2deg);
+  /* transform: rotate(2deg); */
+}
+
+/* lista tarefas */
+.lista-tarefas {
+  max-width: 640px;
+  margin: 20px auto;
+}
+.tarefa {
+  padding: 6px 20px;
+  background: #fff;
+  margin-top: 20px;
+  border-radius: 4px;
+  box-shadow: 2px 4px 6px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tarefa h3, .tarefa .icons {
+  display: inline-block;
+}
+.tarefa .icons {
+  text-align: right;
+}
+.tarefa i {
+  font-size: 1.4em;
+  margin-left: 6px;
+  cursor: pointer;
+  color: #bbb;
 }
