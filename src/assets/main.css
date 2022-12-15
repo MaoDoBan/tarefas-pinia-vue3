@@ -14,7 +14,7 @@ header {
   text-align: center;
   background: #e7e7e7;
   padding-top: 20px;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,6 +60,9 @@ header h1 {
   cursor: pointer;
   color: #bbb;
 }
+.tarefa i.favorita {
+  color: #ff005d;
+}
 
 /* filter nav */
 .filtro {
@@ -76,5 +79,34 @@ header h1 {
   padding: 4px 8px;
   cursor: pointer;
   font-size: 0.8em;
+  font-size: 1em;
+}
+
+/* form nova tarefa */
+.form-nova-tarefa {
+  background: #e7e7e7;
+  padding: 20px 0;
+}
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 10px;
+}
+form button {
+  background: #ffd859;
+  border: 0;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+}
+form input {
+  border: 0;
+  padding: 10px;
+  border-radius: 6px;
+  color: #555;
   font-size: 1em;
 }

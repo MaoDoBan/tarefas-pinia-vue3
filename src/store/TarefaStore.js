@@ -19,5 +19,19 @@ export const useTarefaStore = defineStore("tarefaStore", {
     total: (state) => {
       return state.tarefas.length
     }
+  },
+  actions: {
+    addTarefa(tarefa){
+      this.tarefas.push(tarefa);
+    },
+    deletaTarefa(id){
+      this.tarefas = this.tarefas.filter(tarefa => {
+        return tarefa.id !== id;
+      });
+    },
+    toggleFav(id){
+      const tarefa = this.tarefas.find(tarefa => tarefa.id === id);
+      tarefa.isFav = !tarefa.isFav;
+    }
   }
 });

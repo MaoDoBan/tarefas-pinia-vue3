@@ -5,6 +5,10 @@
       <h1>Tarefas</h1>
     </header>
 
+    <div class="form-nova-tarefa">
+      <FormTarefa/>
+    </div>
+
     <nav class="filtro">
       <button @click="filtro = 'tudo'">     Todas</button>
       <button @click="filtro = 'favoritas'">Favoritas</button>
@@ -29,10 +33,11 @@
 <script>
   import {ref} from "vue";
   import DetalhesTarefa from "./components/DetalhesTarefa.vue";
+  import FormTarefa from "./components/FormTarefa.vue";
   import {useTarefaStore} from "./store/TarefaStore";
 
   export default {
-    components: {DetalhesTarefa},
+    components: {DetalhesTarefa, FormTarefa},
     setup(){
       const filtro = ref("tudo");
       const tarefaStore = useTarefaStore();
