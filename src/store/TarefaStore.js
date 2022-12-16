@@ -28,17 +28,34 @@ export const useTarefaStore = defineStore("tarefaStore", {
         this.loading = false;
       }, 1500);
     },
-    addTarefa(tarefa){
+    async addTarefa(tarefa){
       this.tarefas.push(tarefa);
+
+      const res = await fetch("http://localhost:3000/tarefas", {
+        method: "POST",
+        body: JSON.stringify(tarefa),
+        headers: {"Content-Type": "application/json"}
+      });
+      if(res.error) console.log(res.error);
     },
-    deletaTarefa(id){
+    async deletaTarefa(id){
       this.tarefas = this.tarefas.filter(tarefa => {
         return tarefa.id !== id;
       });
+
+      const res = await fetch("http://localhost:3000/tarefas/" + id, { method: "DELETE" });
+      if(res.error) console.log(res.error);
     },
-    toggleFav(id){
+    async toggleFav(id){
       const tarefa = this.tarefas.find(tarefa => tarefa.id === id);
       tarefa.isFav = !tarefa.isFav;
+
+      const res = await fetch("http://localhost:3000/tarefas/" + id, {
+        method: "PATCH",
+        body: JSON.stringify({ isFav: tarefa.isFav }),
+        headers: {"Content-Type": "application/json"}
+      });
+      if(res.error) console.log(res.error);
     }
   }
 });
