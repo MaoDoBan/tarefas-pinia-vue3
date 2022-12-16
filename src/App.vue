@@ -14,6 +14,8 @@
       <button @click="filtro = 'favoritas'">Favoritas</button>
     </nav>
 
+    <div class="loading" v-if="tarefaStore.loading">Carregando tarefas...</div>
+
     <div class="lista-tarefas" v-if="filtro === 'tudo'">
       <p>{{tarefaStore.total}} tarefas totais restantes</p>
       <div v-for="tarefa in tarefaStore.tarefas" :key="tarefa.id">
@@ -41,6 +43,7 @@
     setup(){
       const filtro = ref("tudo");
       const tarefaStore = useTarefaStore();
+      tarefaStore.getTarefas();
       return {tarefaStore, filtro};
     }
   }

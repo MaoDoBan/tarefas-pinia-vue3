@@ -2,10 +2,8 @@ import {defineStore} from "pinia";
 
 export const useTarefaStore = defineStore("tarefaStore", {
   state: () => ({
-    tarefas: [
-      {id: 1, titulo: "comprar pão", isFav: false},
-      {id: 2, titulo: "jogar W&R",   isFav: true}
-    ]
+    tarefas: [],
+    loading: false
   }),
   getters: {
     favoritas(){
@@ -21,6 +19,15 @@ export const useTarefaStore = defineStore("tarefaStore", {
     }
   },
   actions: {
+    async getTarefas(){
+      this.loading = true;
+      const reposta = await fetch("http://localhost:3000/tarefas");
+      const tarefas = await reposta.json();
+      setTimeout(() => {
+        this.tarefas = tarefas;
+        this.loading = false;
+      }, 1500);
+    },
     addTarefa(tarefa){
       this.tarefas.push(tarefa);
     },
